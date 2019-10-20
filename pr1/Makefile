@@ -1,21 +1,23 @@
-OBJECTS : add.o subtract.o multiply.o divide.o
+OBJECTS : subsys main1 main2 main3
 
-add.o : add.c
-	cd lib
-	gcc -c add.c
 
-subtract.o : subtract.c
-	cd lib
-	gcc -c subtract.o
+subsys : 
+	cd lib; $(MAKE)
 
-multiply.o : multiply.c
-	cd lib
-	gcc -c multiply.c
 
-divide.o : divide.c
-	cd lib
-	gcc -c divide.c
+main1 : 
+	gcc -I./lib -L./lib main.c -ltest -o main1
+
+
+main2 :
+	gcc -I./lib -L./lib main.c -Wl,-rpath,/home/ubuntu/test3/lib -l pr1 -o main2
+	
+
+main3 : 
+	gcc -rdynamic main2.c -ldl -o main3
+
 
 clean : 
-	cd lib
-	rm -f *.o
+	cd lib; $(MAKECLEAN)
+	rm -f main1 main2 main3
+

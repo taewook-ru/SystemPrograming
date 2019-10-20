@@ -8,7 +8,7 @@ main()
 	double (*divide)(double, double);
 	char *error;
 
-	handle = dlopen ("./lib/libtest.so", RTLD_LAZY);
+	handle = dlopen ("./lib/libpr1.so", RTLD_LAZY);
 	if(!handle){
 		fputs(dlerror(), stderr);
 		exit(1);

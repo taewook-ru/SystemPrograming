@@ -57,7 +57,7 @@ int main()
 void print_node(const void *nodeptr, VISIT order, int level)
 {
 	if(order == preorder || order == leaf)
-		printf("name = %20s, mid = %d, fin =%d\n",
+		printf("name = %s, mid term = %d, final term =%d\n",
 				(*(struct node **)nodeptr)->name,
 				(*(struct node **)nodeptr)->mid,
 				(*(struct node **)nodeptr)->fin);
